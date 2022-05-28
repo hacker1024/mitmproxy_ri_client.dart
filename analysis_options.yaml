@@ -1,0 +1,10 @@
+include: package:lint/analysis_options_package.yaml
+
+analyzer:
+  errors:
+    invalid_annotation_target: ignore
+
+linter:
+  rules:
+    sort_pub_dependencies: false
+    sort_unnamed_constructors_first: false
