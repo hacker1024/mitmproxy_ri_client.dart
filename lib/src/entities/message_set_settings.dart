@@ -13,6 +13,14 @@ class MessageSetSettings with _$MessageSetSettings implements ApiResponse {
     @JsonKey(name: 'send_response') required bool includeResponse,
   }) = _MessageSetSettings;
 
+  /// Create settings including or excluding both messages at once.
+  // ignore: avoid_positional_boolean_parameters
+  factory MessageSetSettings.includeBoth(bool includeBoth) =>
+      MessageSetSettings(
+        includeRequest: includeBoth,
+        includeResponse: includeBoth,
+      );
+
   /// Settings to include all messages.
   static const includeAll = MessageSetSettings(
     includeRequest: true,
