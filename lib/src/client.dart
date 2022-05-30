@@ -107,7 +107,7 @@ class Client {
   /// By default, they do not modify any data.
   static Future<Client> connect({
     String host = 'localhost',
-    int port = 8081,
+    int port = 8082,
     RequestSetSettingsProvider getRequestSetSettings =
         _getDefaultMessageSetSettings,
     ResponseSetSettingsProvider getResponseSetSettings =
