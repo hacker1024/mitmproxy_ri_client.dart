@@ -33,21 +33,27 @@ ApiRequest _$ApiRequestFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$ApiRequest {
+  @JsonKey(name: 'flow_id')
+  String get flowId => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(
+            @JsonKey(name: 'flow_id') String flowId,
             @JsonKey(name: 'request_summary') RequestSummary requestSummary,
             @JsonKey(name: 'response_summary') ResponseSummary? responseSummary)
         preRequest,
     required TResult Function(
+            @JsonKey(name: 'flow_id') String flowId,
             @JsonKey(name: 'request_summary') RequestSummary requestSummary,
             @JsonKey(name: 'response_summary') ResponseSummary responseSummary)
         preResponse,
     required TResult Function(
+            @JsonKey(name: 'flow_id') String flowId,
             @JsonKey(name: 'request') CompleteRequest? request,
             @JsonKey(name: 'response') CompleteResponse? response)
         request,
     required TResult Function(
+            @JsonKey(name: 'flow_id') String flowId,
             @JsonKey(name: 'request') CompleteRequest? request,
             @JsonKey(name: 'response') CompleteResponse? response)
         response,
@@ -56,19 +62,26 @@ mixin _$ApiRequest {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(
+            @JsonKey(name: 'flow_id')
+                String flowId,
             @JsonKey(name: 'request_summary')
                 RequestSummary requestSummary,
             @JsonKey(name: 'response_summary')
                 ResponseSummary? responseSummary)?
         preRequest,
     TResult Function(
+            @JsonKey(name: 'flow_id') String flowId,
             @JsonKey(name: 'request_summary') RequestSummary requestSummary,
             @JsonKey(name: 'response_summary') ResponseSummary responseSummary)?
         preResponse,
-    TResult Function(@JsonKey(name: 'request') CompleteRequest? request,
+    TResult Function(
+            @JsonKey(name: 'flow_id') String flowId,
+            @JsonKey(name: 'request') CompleteRequest? request,
             @JsonKey(name: 'response') CompleteResponse? response)?
         request,
-    TResult Function(@JsonKey(name: 'request') CompleteRequest? request,
+    TResult Function(
+            @JsonKey(name: 'flow_id') String flowId,
+            @JsonKey(name: 'request') CompleteRequest? request,
             @JsonKey(name: 'response') CompleteResponse? response)?
         response,
   }) =>
@@ -76,19 +89,26 @@ mixin _$ApiRequest {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(
+            @JsonKey(name: 'flow_id')
+                String flowId,
             @JsonKey(name: 'request_summary')
                 RequestSummary requestSummary,
             @JsonKey(name: 'response_summary')
                 ResponseSummary? responseSummary)?
         preRequest,
     TResult Function(
+            @JsonKey(name: 'flow_id') String flowId,
             @JsonKey(name: 'request_summary') RequestSummary requestSummary,
             @JsonKey(name: 'response_summary') ResponseSummary responseSummary)?
         preResponse,
-    TResult Function(@JsonKey(name: 'request') CompleteRequest? request,
+    TResult Function(
+            @JsonKey(name: 'flow_id') String flowId,
+            @JsonKey(name: 'request') CompleteRequest? request,
             @JsonKey(name: 'response') CompleteResponse? response)?
         request,
-    TResult Function(@JsonKey(name: 'request') CompleteRequest? request,
+    TResult Function(
+            @JsonKey(name: 'flow_id') String flowId,
+            @JsonKey(name: 'request') CompleteRequest? request,
             @JsonKey(name: 'response') CompleteResponse? response)?
         response,
     required TResult orElse(),
@@ -120,6 +140,9 @@ mixin _$ApiRequest {
   }) =>
       throw _privateConstructorUsedError;
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $ApiRequestCopyWith<ApiRequest> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -127,6 +150,7 @@ abstract class $ApiRequestCopyWith<$Res> {
   factory $ApiRequestCopyWith(
           ApiRequest value, $Res Function(ApiRequest) then) =
       _$ApiRequestCopyWithImpl<$Res>;
+  $Res call({@JsonKey(name: 'flow_id') String flowId});
 }
 
 /// @nodoc
@@ -136,15 +160,30 @@ class _$ApiRequestCopyWithImpl<$Res> implements $ApiRequestCopyWith<$Res> {
   final ApiRequest _value;
   // ignore: unused_field
   final $Res Function(ApiRequest) _then;
+
+  @override
+  $Res call({
+    Object? flowId = freezed,
+  }) {
+    return _then(_value.copyWith(
+      flowId: flowId == freezed
+          ? _value.flowId
+          : flowId // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
 }
 
 /// @nodoc
-abstract class _$$PreRequestApiRequestCopyWith<$Res> {
+abstract class _$$PreRequestApiRequestCopyWith<$Res>
+    implements $ApiRequestCopyWith<$Res> {
   factory _$$PreRequestApiRequestCopyWith(_$PreRequestApiRequest value,
           $Res Function(_$PreRequestApiRequest) then) =
       __$$PreRequestApiRequestCopyWithImpl<$Res>;
+  @override
   $Res call(
-      {@JsonKey(name: 'request_summary') RequestSummary requestSummary,
+      {@JsonKey(name: 'flow_id') String flowId,
+      @JsonKey(name: 'request_summary') RequestSummary requestSummary,
       @JsonKey(name: 'response_summary') ResponseSummary? responseSummary});
 
   $RequestSummaryCopyWith<$Res> get requestSummary;
@@ -164,10 +203,15 @@ class __$$PreRequestApiRequestCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object? flowId = freezed,
     Object? requestSummary = freezed,
     Object? responseSummary = freezed,
   }) {
     return _then(_$PreRequestApiRequest(
+      flowId: flowId == freezed
+          ? _value.flowId
+          : flowId // ignore: cast_nullable_to_non_nullable
+              as String,
       requestSummary: requestSummary == freezed
           ? _value.requestSummary
           : requestSummary // ignore: cast_nullable_to_non_nullable
@@ -202,7 +246,8 @@ class __$$PreRequestApiRequestCopyWithImpl<$Res>
 @JsonSerializable()
 class _$PreRequestApiRequest implements PreRequestApiRequest {
   const _$PreRequestApiRequest(
-      {@JsonKey(name: 'request_summary') required this.requestSummary,
+      {@JsonKey(name: 'flow_id') required this.flowId,
+      @JsonKey(name: 'request_summary') required this.requestSummary,
       @JsonKey(name: 'response_summary') this.responseSummary,
       final String? $type})
       : $type = $type ?? 'pre_request';
@@ -210,6 +255,9 @@ class _$PreRequestApiRequest implements PreRequestApiRequest {
   factory _$PreRequestApiRequest.fromJson(Map<String, dynamic> json) =>
       _$$PreRequestApiRequestFromJson(json);
 
+  @override
+  @JsonKey(name: 'flow_id')
+  final String flowId;
   @override
   @JsonKey(name: 'request_summary')
   final RequestSummary requestSummary;
@@ -222,7 +270,7 @@ class _$PreRequestApiRequest implements PreRequestApiRequest {
 
   @override
   String toString() {
-    return 'ApiRequest.preRequest(requestSummary: $requestSummary, responseSummary: $responseSummary)';
+    return 'ApiRequest.preRequest(flowId: $flowId, requestSummary: $requestSummary, responseSummary: $responseSummary)';
   }
 
   @override
@@ -230,6 +278,7 @@ class _$PreRequestApiRequest implements PreRequestApiRequest {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$PreRequestApiRequest &&
+            const DeepCollectionEquality().equals(other.flowId, flowId) &&
             const DeepCollectionEquality()
                 .equals(other.requestSummary, requestSummary) &&
             const DeepCollectionEquality()
@@ -240,6 +289,7 @@ class _$PreRequestApiRequest implements PreRequestApiRequest {
   @override
   int get hashCode => Object.hash(
       runtimeType,
+      const DeepCollectionEquality().hash(flowId),
       const DeepCollectionEquality().hash(requestSummary),
       const DeepCollectionEquality().hash(responseSummary));
 
@@ -253,71 +303,89 @@ class _$PreRequestApiRequest implements PreRequestApiRequest {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(
+            @JsonKey(name: 'flow_id') String flowId,
             @JsonKey(name: 'request_summary') RequestSummary requestSummary,
             @JsonKey(name: 'response_summary') ResponseSummary? responseSummary)
         preRequest,
     required TResult Function(
+            @JsonKey(name: 'flow_id') String flowId,
             @JsonKey(name: 'request_summary') RequestSummary requestSummary,
             @JsonKey(name: 'response_summary') ResponseSummary responseSummary)
         preResponse,
     required TResult Function(
+            @JsonKey(name: 'flow_id') String flowId,
             @JsonKey(name: 'request') CompleteRequest? request,
             @JsonKey(name: 'response') CompleteResponse? response)
         request,
     required TResult Function(
+            @JsonKey(name: 'flow_id') String flowId,
             @JsonKey(name: 'request') CompleteRequest? request,
             @JsonKey(name: 'response') CompleteResponse? response)
         response,
   }) {
-    return preRequest(requestSummary, responseSummary);
+    return preRequest(flowId, requestSummary, responseSummary);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(
+            @JsonKey(name: 'flow_id')
+                String flowId,
             @JsonKey(name: 'request_summary')
                 RequestSummary requestSummary,
             @JsonKey(name: 'response_summary')
                 ResponseSummary? responseSummary)?
         preRequest,
     TResult Function(
+            @JsonKey(name: 'flow_id') String flowId,
             @JsonKey(name: 'request_summary') RequestSummary requestSummary,
             @JsonKey(name: 'response_summary') ResponseSummary responseSummary)?
         preResponse,
-    TResult Function(@JsonKey(name: 'request') CompleteRequest? request,
+    TResult Function(
+            @JsonKey(name: 'flow_id') String flowId,
+            @JsonKey(name: 'request') CompleteRequest? request,
             @JsonKey(name: 'response') CompleteResponse? response)?
         request,
-    TResult Function(@JsonKey(name: 'request') CompleteRequest? request,
+    TResult Function(
+            @JsonKey(name: 'flow_id') String flowId,
+            @JsonKey(name: 'request') CompleteRequest? request,
             @JsonKey(name: 'response') CompleteResponse? response)?
         response,
   }) {
-    return preRequest?.call(requestSummary, responseSummary);
+    return preRequest?.call(flowId, requestSummary, responseSummary);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(
+            @JsonKey(name: 'flow_id')
+                String flowId,
             @JsonKey(name: 'request_summary')
                 RequestSummary requestSummary,
             @JsonKey(name: 'response_summary')
                 ResponseSummary? responseSummary)?
         preRequest,
     TResult Function(
+            @JsonKey(name: 'flow_id') String flowId,
             @JsonKey(name: 'request_summary') RequestSummary requestSummary,
             @JsonKey(name: 'response_summary') ResponseSummary responseSummary)?
         preResponse,
-    TResult Function(@JsonKey(name: 'request') CompleteRequest? request,
+    TResult Function(
+            @JsonKey(name: 'flow_id') String flowId,
+            @JsonKey(name: 'request') CompleteRequest? request,
             @JsonKey(name: 'response') CompleteResponse? response)?
         request,
-    TResult Function(@JsonKey(name: 'request') CompleteRequest? request,
+    TResult Function(
+            @JsonKey(name: 'flow_id') String flowId,
+            @JsonKey(name: 'request') CompleteRequest? request,
             @JsonKey(name: 'response') CompleteResponse? response)?
         response,
     required TResult orElse(),
   }) {
     if (preRequest != null) {
-      return preRequest(requestSummary, responseSummary);
+      return preRequest(flowId, requestSummary, responseSummary);
     }
     return orElse();
   }
@@ -367,7 +435,9 @@ class _$PreRequestApiRequest implements PreRequestApiRequest {
 
 abstract class PreRequestApiRequest implements ApiRequest {
   const factory PreRequestApiRequest(
-      {@JsonKey(name: 'request_summary')
+      {@JsonKey(name: 'flow_id')
+          required final String flowId,
+      @JsonKey(name: 'request_summary')
           required final RequestSummary requestSummary,
       @JsonKey(name: 'response_summary')
           final ResponseSummary? responseSummary}) = _$PreRequestApiRequest;
@@ -375,22 +445,29 @@ abstract class PreRequestApiRequest implements ApiRequest {
   factory PreRequestApiRequest.fromJson(Map<String, dynamic> json) =
       _$PreRequestApiRequest.fromJson;
 
+  @override
+  @JsonKey(name: 'flow_id')
+  String get flowId => throw _privateConstructorUsedError;
   @JsonKey(name: 'request_summary')
   RequestSummary get requestSummary => throw _privateConstructorUsedError;
   @JsonKey(name: 'response_summary')
   ResponseSummary? get responseSummary => throw _privateConstructorUsedError;
+  @override
   @JsonKey(ignore: true)
   _$$PreRequestApiRequestCopyWith<_$PreRequestApiRequest> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$PreResponseApiRequestCopyWith<$Res> {
+abstract class _$$PreResponseApiRequestCopyWith<$Res>
+    implements $ApiRequestCopyWith<$Res> {
   factory _$$PreResponseApiRequestCopyWith(_$PreResponseApiRequest value,
           $Res Function(_$PreResponseApiRequest) then) =
       __$$PreResponseApiRequestCopyWithImpl<$Res>;
+  @override
   $Res call(
-      {@JsonKey(name: 'request_summary') RequestSummary requestSummary,
+      {@JsonKey(name: 'flow_id') String flowId,
+      @JsonKey(name: 'request_summary') RequestSummary requestSummary,
       @JsonKey(name: 'response_summary') ResponseSummary responseSummary});
 
   $RequestSummaryCopyWith<$Res> get requestSummary;
@@ -410,10 +487,15 @@ class __$$PreResponseApiRequestCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object? flowId = freezed,
     Object? requestSummary = freezed,
     Object? responseSummary = freezed,
   }) {
     return _then(_$PreResponseApiRequest(
+      flowId: flowId == freezed
+          ? _value.flowId
+          : flowId // ignore: cast_nullable_to_non_nullable
+              as String,
       requestSummary: requestSummary == freezed
           ? _value.requestSummary
           : requestSummary // ignore: cast_nullable_to_non_nullable
@@ -444,7 +526,8 @@ class __$$PreResponseApiRequestCopyWithImpl<$Res>
 @JsonSerializable()
 class _$PreResponseApiRequest implements PreResponseApiRequest {
   const _$PreResponseApiRequest(
-      {@JsonKey(name: 'request_summary') required this.requestSummary,
+      {@JsonKey(name: 'flow_id') required this.flowId,
+      @JsonKey(name: 'request_summary') required this.requestSummary,
       @JsonKey(name: 'response_summary') required this.responseSummary,
       final String? $type})
       : $type = $type ?? 'pre_response';
@@ -452,6 +535,9 @@ class _$PreResponseApiRequest implements PreResponseApiRequest {
   factory _$PreResponseApiRequest.fromJson(Map<String, dynamic> json) =>
       _$$PreResponseApiRequestFromJson(json);
 
+  @override
+  @JsonKey(name: 'flow_id')
+  final String flowId;
   @override
   @JsonKey(name: 'request_summary')
   final RequestSummary requestSummary;
@@ -464,7 +550,7 @@ class _$PreResponseApiRequest implements PreResponseApiRequest {
 
   @override
   String toString() {
-    return 'ApiRequest.preResponse(requestSummary: $requestSummary, responseSummary: $responseSummary)';
+    return 'ApiRequest.preResponse(flowId: $flowId, requestSummary: $requestSummary, responseSummary: $responseSummary)';
   }
 
   @override
@@ -472,6 +558,7 @@ class _$PreResponseApiRequest implements PreResponseApiRequest {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$PreResponseApiRequest &&
+            const DeepCollectionEquality().equals(other.flowId, flowId) &&
             const DeepCollectionEquality()
                 .equals(other.requestSummary, requestSummary) &&
             const DeepCollectionEquality()
@@ -482,6 +569,7 @@ class _$PreResponseApiRequest implements PreResponseApiRequest {
   @override
   int get hashCode => Object.hash(
       runtimeType,
+      const DeepCollectionEquality().hash(flowId),
       const DeepCollectionEquality().hash(requestSummary),
       const DeepCollectionEquality().hash(responseSummary));
 
@@ -495,71 +583,89 @@ class _$PreResponseApiRequest implements PreResponseApiRequest {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(
+            @JsonKey(name: 'flow_id') String flowId,
             @JsonKey(name: 'request_summary') RequestSummary requestSummary,
             @JsonKey(name: 'response_summary') ResponseSummary? responseSummary)
         preRequest,
     required TResult Function(
+            @JsonKey(name: 'flow_id') String flowId,
             @JsonKey(name: 'request_summary') RequestSummary requestSummary,
             @JsonKey(name: 'response_summary') ResponseSummary responseSummary)
         preResponse,
     required TResult Function(
+            @JsonKey(name: 'flow_id') String flowId,
             @JsonKey(name: 'request') CompleteRequest? request,
             @JsonKey(name: 'response') CompleteResponse? response)
         request,
     required TResult Function(
+            @JsonKey(name: 'flow_id') String flowId,
             @JsonKey(name: 'request') CompleteRequest? request,
             @JsonKey(name: 'response') CompleteResponse? response)
         response,
   }) {
-    return preResponse(requestSummary, responseSummary);
+    return preResponse(flowId, requestSummary, responseSummary);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(
+            @JsonKey(name: 'flow_id')
+                String flowId,
             @JsonKey(name: 'request_summary')
                 RequestSummary requestSummary,
             @JsonKey(name: 'response_summary')
                 ResponseSummary? responseSummary)?
         preRequest,
     TResult Function(
+            @JsonKey(name: 'flow_id') String flowId,
             @JsonKey(name: 'request_summary') RequestSummary requestSummary,
             @JsonKey(name: 'response_summary') ResponseSummary responseSummary)?
         preResponse,
-    TResult Function(@JsonKey(name: 'request') CompleteRequest? request,
+    TResult Function(
+            @JsonKey(name: 'flow_id') String flowId,
+            @JsonKey(name: 'request') CompleteRequest? request,
             @JsonKey(name: 'response') CompleteResponse? response)?
         request,
-    TResult Function(@JsonKey(name: 'request') CompleteRequest? request,
+    TResult Function(
+            @JsonKey(name: 'flow_id') String flowId,
+            @JsonKey(name: 'request') CompleteRequest? request,
             @JsonKey(name: 'response') CompleteResponse? response)?
         response,
   }) {
-    return preResponse?.call(requestSummary, responseSummary);
+    return preResponse?.call(flowId, requestSummary, responseSummary);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(
+            @JsonKey(name: 'flow_id')
+                String flowId,
             @JsonKey(name: 'request_summary')
                 RequestSummary requestSummary,
             @JsonKey(name: 'response_summary')
                 ResponseSummary? responseSummary)?
         preRequest,
     TResult Function(
+            @JsonKey(name: 'flow_id') String flowId,
             @JsonKey(name: 'request_summary') RequestSummary requestSummary,
             @JsonKey(name: 'response_summary') ResponseSummary responseSummary)?
         preResponse,
-    TResult Function(@JsonKey(name: 'request') CompleteRequest? request,
+    TResult Function(
+            @JsonKey(name: 'flow_id') String flowId,
+            @JsonKey(name: 'request') CompleteRequest? request,
             @JsonKey(name: 'response') CompleteResponse? response)?
         request,
-    TResult Function(@JsonKey(name: 'request') CompleteRequest? request,
+    TResult Function(
+            @JsonKey(name: 'flow_id') String flowId,
+            @JsonKey(name: 'request') CompleteRequest? request,
             @JsonKey(name: 'response') CompleteResponse? response)?
         response,
     required TResult orElse(),
   }) {
     if (preResponse != null) {
-      return preResponse(requestSummary, responseSummary);
+      return preResponse(flowId, requestSummary, responseSummary);
     }
     return orElse();
   }
@@ -609,7 +715,9 @@ class _$PreResponseApiRequest implements PreResponseApiRequest {
 
 abstract class PreResponseApiRequest implements ApiRequest {
   const factory PreResponseApiRequest(
-          {@JsonKey(name: 'request_summary')
+          {@JsonKey(name: 'flow_id')
+              required final String flowId,
+          @JsonKey(name: 'request_summary')
               required final RequestSummary requestSummary,
           @JsonKey(name: 'response_summary')
               required final ResponseSummary responseSummary}) =
@@ -618,22 +726,29 @@ abstract class PreResponseApiRequest implements ApiRequest {
   factory PreResponseApiRequest.fromJson(Map<String, dynamic> json) =
       _$PreResponseApiRequest.fromJson;
 
+  @override
+  @JsonKey(name: 'flow_id')
+  String get flowId => throw _privateConstructorUsedError;
   @JsonKey(name: 'request_summary')
   RequestSummary get requestSummary => throw _privateConstructorUsedError;
   @JsonKey(name: 'response_summary')
   ResponseSummary get responseSummary => throw _privateConstructorUsedError;
+  @override
   @JsonKey(ignore: true)
   _$$PreResponseApiRequestCopyWith<_$PreResponseApiRequest> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$RequestApiRequestCopyWith<$Res> {
+abstract class _$$RequestApiRequestCopyWith<$Res>
+    implements $ApiRequestCopyWith<$Res> {
   factory _$$RequestApiRequestCopyWith(
           _$RequestApiRequest value, $Res Function(_$RequestApiRequest) then) =
       __$$RequestApiRequestCopyWithImpl<$Res>;
+  @override
   $Res call(
-      {@JsonKey(name: 'request') CompleteRequest? request,
+      {@JsonKey(name: 'flow_id') String flowId,
+      @JsonKey(name: 'request') CompleteRequest? request,
       @JsonKey(name: 'response') CompleteResponse? response});
 
   $CompleteRequestCopyWith<$Res>? get request;
@@ -653,10 +768,15 @@ class __$$RequestApiRequestCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object? flowId = freezed,
     Object? request = freezed,
     Object? response = freezed,
   }) {
     return _then(_$RequestApiRequest(
+      flowId: flowId == freezed
+          ? _value.flowId
+          : flowId // ignore: cast_nullable_to_non_nullable
+              as String,
       request: request == freezed
           ? _value.request
           : request // ignore: cast_nullable_to_non_nullable
@@ -695,7 +815,8 @@ class __$$RequestApiRequestCopyWithImpl<$Res>
 @JsonSerializable()
 class _$RequestApiRequest implements RequestApiRequest {
   const _$RequestApiRequest(
-      {@JsonKey(name: 'request') this.request,
+      {@JsonKey(name: 'flow_id') required this.flowId,
+      @JsonKey(name: 'request') this.request,
       @JsonKey(name: 'response') this.response,
       final String? $type})
       : $type = $type ?? 'request';
@@ -703,6 +824,9 @@ class _$RequestApiRequest implements RequestApiRequest {
   factory _$RequestApiRequest.fromJson(Map<String, dynamic> json) =>
       _$$RequestApiRequestFromJson(json);
 
+  @override
+  @JsonKey(name: 'flow_id')
+  final String flowId;
   @override
   @JsonKey(name: 'request')
   final CompleteRequest? request;
@@ -715,7 +839,7 @@ class _$RequestApiRequest implements RequestApiRequest {
 
   @override
   String toString() {
-    return 'ApiRequest.request(request: $request, response: $response)';
+    return 'ApiRequest.request(flowId: $flowId, request: $request, response: $response)';
   }
 
   @override
@@ -723,6 +847,7 @@ class _$RequestApiRequest implements RequestApiRequest {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$RequestApiRequest &&
+            const DeepCollectionEquality().equals(other.flowId, flowId) &&
             const DeepCollectionEquality().equals(other.request, request) &&
             const DeepCollectionEquality().equals(other.response, response));
   }
@@ -731,6 +856,7 @@ class _$RequestApiRequest implements RequestApiRequest {
   @override
   int get hashCode => Object.hash(
       runtimeType,
+      const DeepCollectionEquality().hash(flowId),
       const DeepCollectionEquality().hash(request),
       const DeepCollectionEquality().hash(response));
 
@@ -743,71 +869,89 @@ class _$RequestApiRequest implements RequestApiRequest {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(
+            @JsonKey(name: 'flow_id') String flowId,
             @JsonKey(name: 'request_summary') RequestSummary requestSummary,
             @JsonKey(name: 'response_summary') ResponseSummary? responseSummary)
         preRequest,
     required TResult Function(
+            @JsonKey(name: 'flow_id') String flowId,
             @JsonKey(name: 'request_summary') RequestSummary requestSummary,
             @JsonKey(name: 'response_summary') ResponseSummary responseSummary)
         preResponse,
     required TResult Function(
+            @JsonKey(name: 'flow_id') String flowId,
             @JsonKey(name: 'request') CompleteRequest? request,
             @JsonKey(name: 'response') CompleteResponse? response)
         request,
     required TResult Function(
+            @JsonKey(name: 'flow_id') String flowId,
             @JsonKey(name: 'request') CompleteRequest? request,
             @JsonKey(name: 'response') CompleteResponse? response)
         response,
   }) {
-    return request(this.request, this.response);
+    return request(flowId, this.request, this.response);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(
+            @JsonKey(name: 'flow_id')
+                String flowId,
             @JsonKey(name: 'request_summary')
                 RequestSummary requestSummary,
             @JsonKey(name: 'response_summary')
                 ResponseSummary? responseSummary)?
         preRequest,
     TResult Function(
+            @JsonKey(name: 'flow_id') String flowId,
             @JsonKey(name: 'request_summary') RequestSummary requestSummary,
             @JsonKey(name: 'response_summary') ResponseSummary responseSummary)?
         preResponse,
-    TResult Function(@JsonKey(name: 'request') CompleteRequest? request,
+    TResult Function(
+            @JsonKey(name: 'flow_id') String flowId,
+            @JsonKey(name: 'request') CompleteRequest? request,
             @JsonKey(name: 'response') CompleteResponse? response)?
         request,
-    TResult Function(@JsonKey(name: 'request') CompleteRequest? request,
+    TResult Function(
+            @JsonKey(name: 'flow_id') String flowId,
+            @JsonKey(name: 'request') CompleteRequest? request,
             @JsonKey(name: 'response') CompleteResponse? response)?
         response,
   }) {
-    return request?.call(this.request, this.response);
+    return request?.call(flowId, this.request, this.response);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(
+            @JsonKey(name: 'flow_id')
+                String flowId,
             @JsonKey(name: 'request_summary')
                 RequestSummary requestSummary,
             @JsonKey(name: 'response_summary')
                 ResponseSummary? responseSummary)?
         preRequest,
     TResult Function(
+            @JsonKey(name: 'flow_id') String flowId,
             @JsonKey(name: 'request_summary') RequestSummary requestSummary,
             @JsonKey(name: 'response_summary') ResponseSummary responseSummary)?
         preResponse,
-    TResult Function(@JsonKey(name: 'request') CompleteRequest? request,
+    TResult Function(
+            @JsonKey(name: 'flow_id') String flowId,
+            @JsonKey(name: 'request') CompleteRequest? request,
             @JsonKey(name: 'response') CompleteResponse? response)?
         request,
-    TResult Function(@JsonKey(name: 'request') CompleteRequest? request,
+    TResult Function(
+            @JsonKey(name: 'flow_id') String flowId,
+            @JsonKey(name: 'request') CompleteRequest? request,
             @JsonKey(name: 'response') CompleteResponse? response)?
         response,
     required TResult orElse(),
   }) {
     if (request != null) {
-      return request(this.request, this.response);
+      return request(flowId, this.request, this.response);
     }
     return orElse();
   }
@@ -857,29 +1001,37 @@ class _$RequestApiRequest implements RequestApiRequest {
 
 abstract class RequestApiRequest implements ApiRequest {
   const factory RequestApiRequest(
-          {@JsonKey(name: 'request') final CompleteRequest? request,
+          {@JsonKey(name: 'flow_id') required final String flowId,
+          @JsonKey(name: 'request') final CompleteRequest? request,
           @JsonKey(name: 'response') final CompleteResponse? response}) =
       _$RequestApiRequest;
 
   factory RequestApiRequest.fromJson(Map<String, dynamic> json) =
       _$RequestApiRequest.fromJson;
 
+  @override
+  @JsonKey(name: 'flow_id')
+  String get flowId => throw _privateConstructorUsedError;
   @JsonKey(name: 'request')
   CompleteRequest? get request => throw _privateConstructorUsedError;
   @JsonKey(name: 'response')
   CompleteResponse? get response => throw _privateConstructorUsedError;
+  @override
   @JsonKey(ignore: true)
   _$$RequestApiRequestCopyWith<_$RequestApiRequest> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$ResponseApiRequestCopyWith<$Res> {
+abstract class _$$ResponseApiRequestCopyWith<$Res>
+    implements $ApiRequestCopyWith<$Res> {
   factory _$$ResponseApiRequestCopyWith(_$ResponseApiRequest value,
           $Res Function(_$ResponseApiRequest) then) =
       __$$ResponseApiRequestCopyWithImpl<$Res>;
+  @override
   $Res call(
-      {@JsonKey(name: 'request') CompleteRequest? request,
+      {@JsonKey(name: 'flow_id') String flowId,
+      @JsonKey(name: 'request') CompleteRequest? request,
       @JsonKey(name: 'response') CompleteResponse? response});
 
   $CompleteRequestCopyWith<$Res>? get request;
@@ -899,10 +1051,15 @@ class __$$ResponseApiRequestCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object? flowId = freezed,
     Object? request = freezed,
     Object? response = freezed,
   }) {
     return _then(_$ResponseApiRequest(
+      flowId: flowId == freezed
+          ? _value.flowId
+          : flowId // ignore: cast_nullable_to_non_nullable
+              as String,
       request: request == freezed
           ? _value.request
           : request // ignore: cast_nullable_to_non_nullable
@@ -941,7 +1098,8 @@ class __$$ResponseApiRequestCopyWithImpl<$Res>
 @JsonSerializable()
 class _$ResponseApiRequest implements ResponseApiRequest {
   const _$ResponseApiRequest(
-      {@JsonKey(name: 'request') this.request,
+      {@JsonKey(name: 'flow_id') required this.flowId,
+      @JsonKey(name: 'request') this.request,
       @JsonKey(name: 'response') this.response,
       final String? $type})
       : $type = $type ?? 'response';
@@ -949,6 +1107,9 @@ class _$ResponseApiRequest implements ResponseApiRequest {
   factory _$ResponseApiRequest.fromJson(Map<String, dynamic> json) =>
       _$$ResponseApiRequestFromJson(json);
 
+  @override
+  @JsonKey(name: 'flow_id')
+  final String flowId;
   @override
   @JsonKey(name: 'request')
   final CompleteRequest? request;
@@ -961,7 +1122,7 @@ class _$ResponseApiRequest implements ResponseApiRequest {
 
   @override
   String toString() {
-    return 'ApiRequest.response(request: $request, response: $response)';
+    return 'ApiRequest.response(flowId: $flowId, request: $request, response: $response)';
   }
 
   @override
@@ -969,6 +1130,7 @@ class _$ResponseApiRequest implements ResponseApiRequest {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ResponseApiRequest &&
+            const DeepCollectionEquality().equals(other.flowId, flowId) &&
             const DeepCollectionEquality().equals(other.request, request) &&
             const DeepCollectionEquality().equals(other.response, response));
   }
@@ -977,6 +1139,7 @@ class _$ResponseApiRequest implements ResponseApiRequest {
   @override
   int get hashCode => Object.hash(
       runtimeType,
+      const DeepCollectionEquality().hash(flowId),
       const DeepCollectionEquality().hash(request),
       const DeepCollectionEquality().hash(response));
 
@@ -990,71 +1153,89 @@ class _$ResponseApiRequest implements ResponseApiRequest {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(
+            @JsonKey(name: 'flow_id') String flowId,
             @JsonKey(name: 'request_summary') RequestSummary requestSummary,
             @JsonKey(name: 'response_summary') ResponseSummary? responseSummary)
         preRequest,
     required TResult Function(
+            @JsonKey(name: 'flow_id') String flowId,
             @JsonKey(name: 'request_summary') RequestSummary requestSummary,
             @JsonKey(name: 'response_summary') ResponseSummary responseSummary)
         preResponse,
     required TResult Function(
+            @JsonKey(name: 'flow_id') String flowId,
             @JsonKey(name: 'request') CompleteRequest? request,
             @JsonKey(name: 'response') CompleteResponse? response)
         request,
     required TResult Function(
+            @JsonKey(name: 'flow_id') String flowId,
             @JsonKey(name: 'request') CompleteRequest? request,
             @JsonKey(name: 'response') CompleteResponse? response)
         response,
   }) {
-    return response(this.request, this.response);
+    return response(flowId, this.request, this.response);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(
+            @JsonKey(name: 'flow_id')
+                String flowId,
             @JsonKey(name: 'request_summary')
                 RequestSummary requestSummary,
             @JsonKey(name: 'response_summary')
                 ResponseSummary? responseSummary)?
         preRequest,
     TResult Function(
+            @JsonKey(name: 'flow_id') String flowId,
             @JsonKey(name: 'request_summary') RequestSummary requestSummary,
             @JsonKey(name: 'response_summary') ResponseSummary responseSummary)?
         preResponse,
-    TResult Function(@JsonKey(name: 'request') CompleteRequest? request,
+    TResult Function(
+            @JsonKey(name: 'flow_id') String flowId,
+            @JsonKey(name: 'request') CompleteRequest? request,
             @JsonKey(name: 'response') CompleteResponse? response)?
         request,
-    TResult Function(@JsonKey(name: 'request') CompleteRequest? request,
+    TResult Function(
+            @JsonKey(name: 'flow_id') String flowId,
+            @JsonKey(name: 'request') CompleteRequest? request,
             @JsonKey(name: 'response') CompleteResponse? response)?
         response,
   }) {
-    return response?.call(this.request, this.response);
+    return response?.call(flowId, this.request, this.response);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(
+            @JsonKey(name: 'flow_id')
+                String flowId,
             @JsonKey(name: 'request_summary')
                 RequestSummary requestSummary,
             @JsonKey(name: 'response_summary')
                 ResponseSummary? responseSummary)?
         preRequest,
     TResult Function(
+            @JsonKey(name: 'flow_id') String flowId,
             @JsonKey(name: 'request_summary') RequestSummary requestSummary,
             @JsonKey(name: 'response_summary') ResponseSummary responseSummary)?
         preResponse,
-    TResult Function(@JsonKey(name: 'request') CompleteRequest? request,
+    TResult Function(
+            @JsonKey(name: 'flow_id') String flowId,
+            @JsonKey(name: 'request') CompleteRequest? request,
             @JsonKey(name: 'response') CompleteResponse? response)?
         request,
-    TResult Function(@JsonKey(name: 'request') CompleteRequest? request,
+    TResult Function(
+            @JsonKey(name: 'flow_id') String flowId,
+            @JsonKey(name: 'request') CompleteRequest? request,
             @JsonKey(name: 'response') CompleteResponse? response)?
         response,
     required TResult orElse(),
   }) {
     if (response != null) {
-      return response(this.request, this.response);
+      return response(flowId, this.request, this.response);
     }
     return orElse();
   }
@@ -1104,17 +1285,22 @@ class _$ResponseApiRequest implements ResponseApiRequest {
 
 abstract class ResponseApiRequest implements ApiRequest {
   const factory ResponseApiRequest(
-          {@JsonKey(name: 'request') final CompleteRequest? request,
+          {@JsonKey(name: 'flow_id') required final String flowId,
+          @JsonKey(name: 'request') final CompleteRequest? request,
           @JsonKey(name: 'response') final CompleteResponse? response}) =
       _$ResponseApiRequest;
 
   factory ResponseApiRequest.fromJson(Map<String, dynamic> json) =
       _$ResponseApiRequest.fromJson;
 
+  @override
+  @JsonKey(name: 'flow_id')
+  String get flowId => throw _privateConstructorUsedError;
   @JsonKey(name: 'request')
   CompleteRequest? get request => throw _privateConstructorUsedError;
   @JsonKey(name: 'response')
   CompleteResponse? get response => throw _privateConstructorUsedError;
+  @override
   @JsonKey(ignore: true)
   _$$ResponseApiRequestCopyWith<_$ResponseApiRequest> get copyWith =>
       throw _privateConstructorUsedError;

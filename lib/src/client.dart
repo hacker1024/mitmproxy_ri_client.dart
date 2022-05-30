@@ -12,6 +12,7 @@ import 'package:mitmproxy_ri_client/src/entities/response.dart';
 /// A function that provides request [MessageSetSettings] based on the given
 /// request and response summaries.
 typedef RequestSetSettingsProvider = FutureOr<MessageSetSettings> Function(
+  String flowId,
   RequestSummary requestSummary,
   ResponseSummary? responseSummary,
 );
@@ -19,6 +20,7 @@ typedef RequestSetSettingsProvider = FutureOr<MessageSetSettings> Function(
 /// A function that provides response [MessageSetSettings] based on the given
 /// request and response summaries.
 typedef ResponseSetSettingsProvider = FutureOr<MessageSetSettings> Function(
+  String flowId,
   RequestSummary requestSummary,
   ResponseSummary responseSummary,
 );
@@ -26,6 +28,7 @@ typedef ResponseSetSettingsProvider = FutureOr<MessageSetSettings> Function(
 /// A function that provides a [MessageSet] containing request and response data
 /// to use based on the given [request] and [response]s.
 typedef MessageSetProvider = FutureOr<MessageSet> Function(
+  String flowId,
   CompleteRequest? request,
   CompleteResponse? response,
 );
@@ -126,12 +129,14 @@ class Client {
   }
 
   static MessageSetSettings _getDefaultMessageSetSettings(
+    String flowId,
     RequestSummary requestSummary,
     ResponseSummary? responseSummary,
   ) =>
       MessageSetSettings.includeAll;
 
   static MessageSet _getDefaultMessageSet(
+    String flowId,
     CompleteRequest? request,
     CompleteResponse? response,
   ) =>
