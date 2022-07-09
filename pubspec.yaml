@@ -7,11 +7,11 @@ environment:
   sdk: '>=2.17.0 <3.0.0'
 
 dependencies:
- json_annotation: ^4.5.0
+ json_annotation: ^4.6.0
  freezed_annotation: ^2.0.3
 
 dev_dependencies:
   lint: ^1.8.2
   build_runner: ^2.1.11
-  json_serializable: ^6.2.0
-  freezed: ^2.0.3+1
+  json_serializable: ^6.3.1
+  freezed: ^2.0.4

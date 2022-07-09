@@ -197,10 +197,10 @@ abstract class _MessageSet implements MessageSet {
 
   @override
   @JsonKey(name: 'request')
-  CompleteRequest? get request => throw _privateConstructorUsedError;
+  CompleteRequest? get request;
   @override
   @JsonKey(name: 'response')
-  CompleteResponse? get response => throw _privateConstructorUsedError;
+  CompleteResponse? get response;
   @override
   @JsonKey(ignore: true)
   _$$_MessageSetCopyWith<_$_MessageSet> get copyWith =>

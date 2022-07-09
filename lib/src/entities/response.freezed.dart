@@ -169,10 +169,10 @@ abstract class _ResponseSummary implements ResponseSummary {
 
   @override
   @JsonKey(name: 'status_code')
-  int get statusCode => throw _privateConstructorUsedError;
+  int get statusCode;
   @override
   @JsonKey(name: 'reason')
-  String? get reason => throw _privateConstructorUsedError;
+  String? get reason;
   @override
   @JsonKey(ignore: true)
   _$$_ResponseSummaryCopyWith<_$_ResponseSummary> get copyWith =>
@@ -400,16 +400,16 @@ abstract class _CompleteResponse extends CompleteResponse {
 
   @override
   @JsonKey(name: 'status_code')
-  int get statusCode => throw _privateConstructorUsedError;
+  int get statusCode;
   @override
   @JsonKey(name: 'reason')
-  String? get reason => throw _privateConstructorUsedError;
+  String? get reason;
   @override
   @JsonKey(name: 'headers')
-  Map<String, List<String>> get headers => throw _privateConstructorUsedError;
+  Map<String, List<String>> get headers;
   @override
   @JsonKey(name: 'body', fromJson: base64Decode, toJson: base64Encode)
-  Uint8List get body => throw _privateConstructorUsedError;
+  Uint8List get body;
   @override
   @JsonKey(ignore: true)
   _$$_CompleteResponseCopyWith<_$_CompleteResponse> get copyWith =>

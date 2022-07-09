@@ -166,10 +166,10 @@ abstract class _RequestSummary implements RequestSummary {
 
   @override
   @JsonKey(name: 'method')
-  String get method => throw _privateConstructorUsedError;
+  String get method;
   @override
   @JsonKey(name: 'url')
-  Uri get url => throw _privateConstructorUsedError;
+  Uri get url;
   @override
   @JsonKey(ignore: true)
   _$$_RequestSummaryCopyWith<_$_RequestSummary> get copyWith =>
@@ -396,16 +396,16 @@ abstract class _CompleteRequest extends CompleteRequest {
 
   @override
   @JsonKey(name: 'method')
-  String get method => throw _privateConstructorUsedError;
+  String get method;
   @override
   @JsonKey(name: 'url')
-  Uri get url => throw _privateConstructorUsedError;
+  Uri get url;
   @override
   @JsonKey(name: 'headers')
-  Map<String, List<String>> get headers => throw _privateConstructorUsedError;
+  Map<String, List<String>> get headers;
   @override
   @JsonKey(name: 'body', fromJson: base64Decode, toJson: base64Encode)
-  Uint8List get body => throw _privateConstructorUsedError;
+  Uint8List get body;
   @override
   @JsonKey(ignore: true)
   _$$_CompleteRequestCopyWith<_$_CompleteRequest> get copyWith =>

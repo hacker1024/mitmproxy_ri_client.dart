@@ -447,11 +447,11 @@ abstract class PreRequestApiRequest implements ApiRequest {
 
   @override
   @JsonKey(name: 'flow_id')
-  String get flowId => throw _privateConstructorUsedError;
+  String get flowId;
   @JsonKey(name: 'request_summary')
-  RequestSummary get requestSummary => throw _privateConstructorUsedError;
+  RequestSummary get requestSummary;
   @JsonKey(name: 'response_summary')
-  ResponseSummary? get responseSummary => throw _privateConstructorUsedError;
+  ResponseSummary? get responseSummary;
   @override
   @JsonKey(ignore: true)
   _$$PreRequestApiRequestCopyWith<_$PreRequestApiRequest> get copyWith =>
@@ -728,11 +728,11 @@ abstract class PreResponseApiRequest implements ApiRequest {
 
   @override
   @JsonKey(name: 'flow_id')
-  String get flowId => throw _privateConstructorUsedError;
+  String get flowId;
   @JsonKey(name: 'request_summary')
-  RequestSummary get requestSummary => throw _privateConstructorUsedError;
+  RequestSummary get requestSummary;
   @JsonKey(name: 'response_summary')
-  ResponseSummary get responseSummary => throw _privateConstructorUsedError;
+  ResponseSummary get responseSummary;
   @override
   @JsonKey(ignore: true)
   _$$PreResponseApiRequestCopyWith<_$PreResponseApiRequest> get copyWith =>
@@ -1011,11 +1011,11 @@ abstract class RequestApiRequest implements ApiRequest {
 
   @override
   @JsonKey(name: 'flow_id')
-  String get flowId => throw _privateConstructorUsedError;
+  String get flowId;
   @JsonKey(name: 'request')
-  CompleteRequest? get request => throw _privateConstructorUsedError;
+  CompleteRequest? get request;
   @JsonKey(name: 'response')
-  CompleteResponse? get response => throw _privateConstructorUsedError;
+  CompleteResponse? get response;
   @override
   @JsonKey(ignore: true)
   _$$RequestApiRequestCopyWith<_$RequestApiRequest> get copyWith =>
@@ -1295,11 +1295,11 @@ abstract class ResponseApiRequest implements ApiRequest {
 
   @override
   @JsonKey(name: 'flow_id')
-  String get flowId => throw _privateConstructorUsedError;
+  String get flowId;
   @JsonKey(name: 'request')
-  CompleteRequest? get request => throw _privateConstructorUsedError;
+  CompleteRequest? get request;
   @JsonKey(name: 'response')
-  CompleteResponse? get response => throw _privateConstructorUsedError;
+  CompleteResponse? get response;
   @override
   @JsonKey(ignore: true)
   _$$ResponseApiRequestCopyWith<_$ResponseApiRequest> get copyWith =>

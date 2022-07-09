@@ -173,10 +173,10 @@ abstract class _MessageSetSettings implements MessageSetSettings {
 
   @override
   @JsonKey(name: 'send_request')
-  bool get includeRequest => throw _privateConstructorUsedError;
+  bool get includeRequest;
   @override
   @JsonKey(name: 'send_response')
-  bool get includeResponse => throw _privateConstructorUsedError;
+  bool get includeResponse;
   @override
   @JsonKey(ignore: true)
   _$$_MessageSetSettingsCopyWith<_$_MessageSetSettings> get copyWith =>
