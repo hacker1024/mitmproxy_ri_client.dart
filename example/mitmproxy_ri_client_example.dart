@@ -1,9 +1,9 @@
-import 'dart:io';
+// ignore_for_file: avoid_print
 
 import 'package:mitmproxy_ri_client/mitmproxy_ri_client.dart' as mitm_ri;
 
 void main() async {
-  final client = await mitm_ri.Client.connect(
+  final client = mitm_ri.Client.connect(
     // Leave requests as they are.
     getRequestSetSettings: (flowId, requestSummary, responseSummary) =>
         mitm_ri.MessageSetSettings.skip,
@@ -28,10 +28,10 @@ void main() async {
     },
   );
 
+  print('Connected.');
   // Wait for the addon server to close.
-  stdout.writeln('Connected.');
   await client.done;
-  stdout.writeln('Disconnected.');
+  print('Disconnected.');
 
   // Alternatively, the client can disconnect from the addon manually.
   // await client.disconnect();
