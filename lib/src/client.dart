@@ -2,7 +2,6 @@ import 'dart:async';
 import 'dart:convert';
 
 import 'package:mitmproxy_ri_client/src/entities/api_request.dart';
-import 'package:mitmproxy_ri_client/src/entities/api_response.dart';
 import 'package:mitmproxy_ri_client/src/entities/message_set.dart';
 import 'package:mitmproxy_ri_client/src/entities/message_set_settings.dart';
 import 'package:mitmproxy_ri_client/src/entities/request.dart';
@@ -39,10 +38,8 @@ class Client {
   /// The websocket connection to the addon.
   final WebSocketChannel _channel;
 
-  final RequestSetSettingsProvider _getRequestSetSettings;
-  final ResponseSetSettingsProvider _getResponseSetSettings;
-  final MessageSetProvider _handleRequest;
-  final MessageSetProvider _handleResponse;
+  /// A [Future] that completes when the connection to the addon closes.
+  final Future<void> done;
 
   /// Connects to a mitmproxy Remote Interceptions addon.
   ///
@@ -86,57 +83,41 @@ class Client {
         _getDefaultMessageSetSettings,
     MessageSetProvider handleRequest = _getDefaultMessageSet,
     MessageSetProvider handleResponse = _getDefaultMessageSet,
-  })  : _getRequestSetSettings = getRequestSetSettings,
-        _getResponseSetSettings = getResponseSetSettings,
-        _handleRequest = handleRequest,
-        _handleResponse = handleResponse {
-    _channel.stream.listen(
-      (message) async {
-        // Decode and parse the API request JSON.
-        final apiRequestJson =
-            jsonDecode(message as String) as Map<String, dynamic>;
-        final id = apiRequestJson['id'] as String;
-        final request = ApiRequest.fromJson(apiRequestJson);
+  }) : done = _channel.stream.forEach(
+          (message) async {
+            // Decode and parse the API request JSON.
+            final apiRequestJson =
+                jsonDecode(message as String) as Map<String, dynamic>;
+            final id = apiRequestJson['id'] as String;
+            final request = ApiRequest.fromJson(apiRequestJson);
 
-        // Handle the request, and send a relevant response.
-        final apiResponseFuture = request.when(
-          preRequest: _getRequestSetSettings,
-          preResponse: _getResponseSetSettings,
-          request: _handleRequest,
-          response: _handleResponse,
+            // Handle the request, and generate a response.
+            final apiResponseFuture = request.when(
+              preRequest: getRequestSetSettings,
+              preResponse: getResponseSetSettings,
+              request: handleRequest,
+              response: handleResponse,
+            );
+
+            // Encode and send the API response JSON.
+            final apiResponseJson =
+                jsonEncode((await apiResponseFuture).toJson()..['id'] = id);
+            _channel.sink.add(apiResponseJson);
+          },
+        ).catchError(
+          (error, StackTrace stackTrace) {
+            Object _unwrap(Object error) {
+              if (error is! WebSocketChannelException) return error;
+              final inner = error.inner;
+              return inner == null ? error : _unwrap(inner);
+            }
+
+            onError!
+                .call(_unwrap(error as WebSocketChannelException), stackTrace);
+          },
+          test: (error) =>
+              onError != null && error is WebSocketChannelException,
         );
-        _sendApiResponse(id, await apiResponseFuture);
-      },
-      onError: onError == null
-          ? null
-          : (Object error, StackTrace stackTrace) {
-              if (error is! WebSocketChannelException) {
-                Error.throwWithStackTrace(error, stackTrace);
-              }
-
-              Object _unwrap(Object error) {
-                if (error is! WebSocketChannelException) return error;
-                final inner = error.inner;
-                return inner == null ? error : _unwrap(inner);
-              }
-
-              onError(_unwrap(error), stackTrace);
-            },
-      onDone: () {
-        // For some reason, the WebSocket doesn't close itself when the server
-        // closes.
-        _channel.sink.close(status.goingAway);
-      },
-    );
-  }
-
-  /// A [Future] that completes when the connection to the addon closes.
-  Future<void> get done => _channel.sink.done;
-
-  void _sendApiResponse(String id, ApiResponse apiResponse) {
-    final apiResponseJson = jsonEncode(apiResponse.toJson()..['id'] = id);
-    _channel.sink.add(apiResponseJson);
-  }
 
   /// Disconnect from the addon.
   Future<void> disconnect() async {

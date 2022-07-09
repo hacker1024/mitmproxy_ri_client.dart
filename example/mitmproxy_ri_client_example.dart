@@ -29,10 +29,13 @@ void main() async {
   );
 
   print('Connected.');
+
   // Wait for the addon server to close.
   await client.done;
-  print('Disconnected.');
 
   // Alternatively, the client can disconnect from the addon manually.
+  // await stdin.first;
   // await client.disconnect();
+
+  print('Disconnected.');
 }
