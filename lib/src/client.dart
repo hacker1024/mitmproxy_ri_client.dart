@@ -107,7 +107,21 @@ class Client {
         );
         _sendApiResponse(id, await apiResponseFuture);
       },
-      onError: onError,
+      onError: onError == null
+          ? null
+          : (Object error, StackTrace stackTrace) {
+              if (error is! WebSocketChannelException) {
+                Error.throwWithStackTrace(error, stackTrace);
+              }
+
+              Object _unwrap(Object error) {
+                if (error is! WebSocketChannelException) return error;
+                final inner = error.inner;
+                return inner == null ? error : _unwrap(inner);
+              }
+
+              onError(_unwrap(error), stackTrace);
+            },
       onDone: () {
         // For some reason, the WebSocket doesn't close itself when the server
         // closes.
