@@ -106,14 +106,14 @@ class Client {
           },
         ).catchError(
           (error, StackTrace stackTrace) {
-            Object _unwrap(Object error) {
+            Object unwrap(Object error) {
               if (error is! WebSocketChannelException) return error;
               final inner = error.inner;
-              return inner == null ? error : _unwrap(inner);
+              return inner == null ? error : unwrap(inner);
             }
 
             onError!
-                .call(_unwrap(error as WebSocketChannelException), stackTrace);
+                .call(unwrap(error as WebSocketChannelException), stackTrace);
           },
           test: (error) =>
               onError != null && error is WebSocketChannelException,
