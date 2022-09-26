@@ -157,7 +157,9 @@ class _$_MessageSetSettings implements _MessageSetSettings {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_MessageSetSettingsToJson(this);
+    return _$$_MessageSetSettingsToJson(
+      this,
+    );
   }
 }
 

@@ -152,7 +152,9 @@ class _$_RequestSummary implements _RequestSummary {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_RequestSummaryToJson(this);
+    return _$$_RequestSummaryToJson(
+      this,
+    );
   }
 }
 
@@ -375,7 +377,9 @@ class _$_CompleteRequest extends _CompleteRequest {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_CompleteRequestToJson(this);
+    return _$$_CompleteRequestToJson(
+      this,
+    );
   }
 }
 

@@ -182,7 +182,9 @@ class _$_MessageSet implements _MessageSet {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_MessageSetToJson(this);
+    return _$$_MessageSetToJson(
+      this,
+    );
   }
 }
 

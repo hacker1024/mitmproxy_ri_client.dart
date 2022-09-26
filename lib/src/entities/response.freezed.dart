@@ -155,7 +155,9 @@ class _$_ResponseSummary implements _ResponseSummary {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_ResponseSummaryToJson(this);
+    return _$$_ResponseSummaryToJson(
+      this,
+    );
   }
 }
 
@@ -379,7 +381,9 @@ class _$_CompleteResponse extends _CompleteResponse {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_CompleteResponseToJson(this);
+    return _$$_CompleteResponseToJson(
+      this,
+    );
   }
 }
 

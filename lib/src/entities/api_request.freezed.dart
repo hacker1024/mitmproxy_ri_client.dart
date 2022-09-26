@@ -429,7 +429,9 @@ class _$PreRequestApiRequest implements PreRequestApiRequest {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$PreRequestApiRequestToJson(this);
+    return _$$PreRequestApiRequestToJson(
+      this,
+    );
   }
 }
 
@@ -709,7 +711,9 @@ class _$PreResponseApiRequest implements PreResponseApiRequest {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$PreResponseApiRequestToJson(this);
+    return _$$PreResponseApiRequestToJson(
+      this,
+    );
   }
 }
 
@@ -995,7 +999,9 @@ class _$RequestApiRequest implements RequestApiRequest {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$RequestApiRequestToJson(this);
+    return _$$RequestApiRequestToJson(
+      this,
+    );
   }
 }
 
@@ -1279,7 +1285,9 @@ class _$ResponseApiRequest implements ResponseApiRequest {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$ResponseApiRequestToJson(this);
+    return _$$ResponseApiRequestToJson(
+      this,
+    );
   }
 }
 
