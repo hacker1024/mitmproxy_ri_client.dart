@@ -3,6 +3,7 @@ import 'dart:typed_data';
 
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:mitmproxy_ri_client/src/entities/message.dart';
+import 'package:mitmproxy_ri_client/src/json_util.dart';
 
 part 'request.freezed.dart';
 part 'request.g.dart';
@@ -37,38 +38,20 @@ class CompleteRequest extends Message
   const CompleteRequest._();
 
   const factory CompleteRequest({
+    @JsonKey(name: 'http_version') String? httpVersion,
     @JsonKey(name: 'method') required String method,
     @JsonKey(name: 'url') required Uri url,
     @JsonKey(name: 'headers') required Map<String, List<String>> headers,
     @JsonKey(name: 'body', fromJson: base64Decode, toJson: base64Encode)
         required Uint8List body,
+    @JsonKey(name: 'trailers') Map<String, List<String>>? trailers,
+    @JsonKey(name: 'timestamp_start')
+    @EpochTimeJsonConverter()
+        required DateTime startTime,
+    @JsonKey(name: 'timestamp_end')
+    @EpochTimeJsonConverter()
+        required DateTime endTime,
   }) = _CompleteRequest;
-
-  factory CompleteRequest.withText({
-    required String method,
-    required Uri url,
-    required Map<String, List<String>> headers,
-    required String text,
-  }) =>
-      CompleteRequest(
-        method: method,
-        url: url,
-        headers: headers,
-        body: const Utf8Encoder().convert(text),
-      );
-
-  CompleteRequest copyWithText(
-    String text, {
-    String? method,
-    Uri? url,
-    Map<String, List<String>>? headers,
-  }) =>
-      CompleteRequest.withText(
-        method: method ?? this.method,
-        url: url ?? this.url,
-        headers: headers ?? this.headers,
-        text: text,
-      );
 
   factory CompleteRequest.fromJson(Map<String, dynamic> json) =>
       _$CompleteRequestFromJson(json);

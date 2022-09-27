@@ -187,6 +187,8 @@ CompleteResponse _$CompleteResponseFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$CompleteResponse {
+  @JsonKey(name: 'http_version')
+  String? get httpVersion => throw _privateConstructorUsedError;
   @JsonKey(name: 'status_code')
   int get statusCode => throw _privateConstructorUsedError;
   @JsonKey(name: 'reason')
@@ -195,6 +197,14 @@ mixin _$CompleteResponse {
   Map<String, List<String>> get headers => throw _privateConstructorUsedError;
   @JsonKey(name: 'body', fromJson: base64Decode, toJson: base64Encode)
   Uint8List get body => throw _privateConstructorUsedError;
+  @JsonKey(name: 'trailers')
+  Map<String, List<String>>? get trailers => throw _privateConstructorUsedError;
+  @JsonKey(name: 'timestamp_start')
+  @EpochTimeJsonConverter()
+  DateTime get startTime => throw _privateConstructorUsedError;
+  @JsonKey(name: 'timestamp_end')
+  @EpochTimeJsonConverter()
+  DateTime get endTime => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -208,14 +218,24 @@ abstract class $CompleteResponseCopyWith<$Res> {
           CompleteResponse value, $Res Function(CompleteResponse) then) =
       _$CompleteResponseCopyWithImpl<$Res>;
   $Res call(
-      {@JsonKey(name: 'status_code')
+      {@JsonKey(name: 'http_version')
+          String? httpVersion,
+      @JsonKey(name: 'status_code')
           int statusCode,
       @JsonKey(name: 'reason')
           String? reason,
       @JsonKey(name: 'headers')
           Map<String, List<String>> headers,
       @JsonKey(name: 'body', fromJson: base64Decode, toJson: base64Encode)
-          Uint8List body});
+          Uint8List body,
+      @JsonKey(name: 'trailers')
+          Map<String, List<String>>? trailers,
+      @JsonKey(name: 'timestamp_start')
+      @EpochTimeJsonConverter()
+          DateTime startTime,
+      @JsonKey(name: 'timestamp_end')
+      @EpochTimeJsonConverter()
+          DateTime endTime});
 }
 
 /// @nodoc
@@ -229,12 +249,20 @@ class _$CompleteResponseCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object? httpVersion = freezed,
     Object? statusCode = freezed,
     Object? reason = freezed,
     Object? headers = freezed,
     Object? body = freezed,
+    Object? trailers = freezed,
+    Object? startTime = freezed,
+    Object? endTime = freezed,
   }) {
     return _then(_value.copyWith(
+      httpVersion: httpVersion == freezed
+          ? _value.httpVersion
+          : httpVersion // ignore: cast_nullable_to_non_nullable
+              as String?,
       statusCode: statusCode == freezed
           ? _value.statusCode
           : statusCode // ignore: cast_nullable_to_non_nullable
@@ -251,6 +279,18 @@ class _$CompleteResponseCopyWithImpl<$Res>
           ? _value.body
           : body // ignore: cast_nullable_to_non_nullable
               as Uint8List,
+      trailers: trailers == freezed
+          ? _value.trailers
+          : trailers // ignore: cast_nullable_to_non_nullable
+              as Map<String, List<String>>?,
+      startTime: startTime == freezed
+          ? _value.startTime
+          : startTime // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+      endTime: endTime == freezed
+          ? _value.endTime
+          : endTime // ignore: cast_nullable_to_non_nullable
+              as DateTime,
     ));
   }
 }
@@ -263,14 +303,24 @@ abstract class _$$_CompleteResponseCopyWith<$Res>
       __$$_CompleteResponseCopyWithImpl<$Res>;
   @override
   $Res call(
-      {@JsonKey(name: 'status_code')
+      {@JsonKey(name: 'http_version')
+          String? httpVersion,
+      @JsonKey(name: 'status_code')
           int statusCode,
       @JsonKey(name: 'reason')
           String? reason,
       @JsonKey(name: 'headers')
           Map<String, List<String>> headers,
       @JsonKey(name: 'body', fromJson: base64Decode, toJson: base64Encode)
-          Uint8List body});
+          Uint8List body,
+      @JsonKey(name: 'trailers')
+          Map<String, List<String>>? trailers,
+      @JsonKey(name: 'timestamp_start')
+      @EpochTimeJsonConverter()
+          DateTime startTime,
+      @JsonKey(name: 'timestamp_end')
+      @EpochTimeJsonConverter()
+          DateTime endTime});
 }
 
 /// @nodoc
@@ -286,12 +336,20 @@ class __$$_CompleteResponseCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object? httpVersion = freezed,
     Object? statusCode = freezed,
     Object? reason = freezed,
     Object? headers = freezed,
     Object? body = freezed,
+    Object? trailers = freezed,
+    Object? startTime = freezed,
+    Object? endTime = freezed,
   }) {
     return _then(_$_CompleteResponse(
+      httpVersion: httpVersion == freezed
+          ? _value.httpVersion
+          : httpVersion // ignore: cast_nullable_to_non_nullable
+              as String?,
       statusCode: statusCode == freezed
           ? _value.statusCode
           : statusCode // ignore: cast_nullable_to_non_nullable
@@ -308,6 +366,18 @@ class __$$_CompleteResponseCopyWithImpl<$Res>
           ? _value.body
           : body // ignore: cast_nullable_to_non_nullable
               as Uint8List,
+      trailers: trailers == freezed
+          ? _value._trailers
+          : trailers // ignore: cast_nullable_to_non_nullable
+              as Map<String, List<String>>?,
+      startTime: startTime == freezed
+          ? _value.startTime
+          : startTime // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+      endTime: endTime == freezed
+          ? _value.endTime
+          : endTime // ignore: cast_nullable_to_non_nullable
+              as DateTime,
     ));
   }
 }
@@ -316,20 +386,34 @@ class __$$_CompleteResponseCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_CompleteResponse extends _CompleteResponse {
   const _$_CompleteResponse(
-      {@JsonKey(name: 'status_code')
+      {@JsonKey(name: 'http_version')
+          this.httpVersion,
+      @JsonKey(name: 'status_code')
           required this.statusCode,
       @JsonKey(name: 'reason')
           this.reason,
       @JsonKey(name: 'headers')
           required final Map<String, List<String>> headers,
       @JsonKey(name: 'body', fromJson: base64Decode, toJson: base64Encode)
-          required this.body})
+          required this.body,
+      @JsonKey(name: 'trailers')
+          final Map<String, List<String>>? trailers,
+      @JsonKey(name: 'timestamp_start')
+      @EpochTimeJsonConverter()
+          required this.startTime,
+      @JsonKey(name: 'timestamp_end')
+      @EpochTimeJsonConverter()
+          required this.endTime})
       : _headers = headers,
+        _trailers = trailers,
         super._();
 
   factory _$_CompleteResponse.fromJson(Map<String, dynamic> json) =>
       _$$_CompleteResponseFromJson(json);
 
+  @override
+  @JsonKey(name: 'http_version')
+  final String? httpVersion;
   @override
   @JsonKey(name: 'status_code')
   final int statusCode;
@@ -347,10 +431,28 @@ class _$_CompleteResponse extends _CompleteResponse {
   @override
   @JsonKey(name: 'body', fromJson: base64Decode, toJson: base64Encode)
   final Uint8List body;
+  final Map<String, List<String>>? _trailers;
+  @override
+  @JsonKey(name: 'trailers')
+  Map<String, List<String>>? get trailers {
+    final value = _trailers;
+    if (value == null) return null;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(value);
+  }
+
+  @override
+  @JsonKey(name: 'timestamp_start')
+  @EpochTimeJsonConverter()
+  final DateTime startTime;
+  @override
+  @JsonKey(name: 'timestamp_end')
+  @EpochTimeJsonConverter()
+  final DateTime endTime;
 
   @override
   String toString() {
-    return 'CompleteResponse(statusCode: $statusCode, reason: $reason, headers: $headers, body: $body)';
+    return 'CompleteResponse(httpVersion: $httpVersion, statusCode: $statusCode, reason: $reason, headers: $headers, body: $body, trailers: $trailers, startTime: $startTime, endTime: $endTime)';
   }
 
   @override
@@ -359,20 +461,29 @@ class _$_CompleteResponse extends _CompleteResponse {
         (other.runtimeType == runtimeType &&
             other is _$_CompleteResponse &&
             const DeepCollectionEquality()
+                .equals(other.httpVersion, httpVersion) &&
+            const DeepCollectionEquality()
                 .equals(other.statusCode, statusCode) &&
             const DeepCollectionEquality().equals(other.reason, reason) &&
             const DeepCollectionEquality().equals(other._headers, _headers) &&
-            const DeepCollectionEquality().equals(other.body, body));
+            const DeepCollectionEquality().equals(other.body, body) &&
+            const DeepCollectionEquality().equals(other._trailers, _trailers) &&
+            const DeepCollectionEquality().equals(other.startTime, startTime) &&
+            const DeepCollectionEquality().equals(other.endTime, endTime));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
+      const DeepCollectionEquality().hash(httpVersion),
       const DeepCollectionEquality().hash(statusCode),
       const DeepCollectionEquality().hash(reason),
       const DeepCollectionEquality().hash(_headers),
-      const DeepCollectionEquality().hash(body));
+      const DeepCollectionEquality().hash(body),
+      const DeepCollectionEquality().hash(_trailers),
+      const DeepCollectionEquality().hash(startTime),
+      const DeepCollectionEquality().hash(endTime));
 
   @JsonKey(ignore: true)
   @override
@@ -389,19 +500,32 @@ class _$_CompleteResponse extends _CompleteResponse {
 
 abstract class _CompleteResponse extends CompleteResponse {
   const factory _CompleteResponse(
-      {@JsonKey(name: 'status_code')
+      {@JsonKey(name: 'http_version')
+          final String? httpVersion,
+      @JsonKey(name: 'status_code')
           required final int statusCode,
       @JsonKey(name: 'reason')
           final String? reason,
       @JsonKey(name: 'headers')
           required final Map<String, List<String>> headers,
       @JsonKey(name: 'body', fromJson: base64Decode, toJson: base64Encode)
-          required final Uint8List body}) = _$_CompleteResponse;
+          required final Uint8List body,
+      @JsonKey(name: 'trailers')
+          final Map<String, List<String>>? trailers,
+      @JsonKey(name: 'timestamp_start')
+      @EpochTimeJsonConverter()
+          required final DateTime startTime,
+      @JsonKey(name: 'timestamp_end')
+      @EpochTimeJsonConverter()
+          required final DateTime endTime}) = _$_CompleteResponse;
   const _CompleteResponse._() : super._();
 
   factory _CompleteResponse.fromJson(Map<String, dynamic> json) =
       _$_CompleteResponse.fromJson;
 
+  @override
+  @JsonKey(name: 'http_version')
+  String? get httpVersion;
   @override
   @JsonKey(name: 'status_code')
   int get statusCode;
@@ -414,6 +538,17 @@ abstract class _CompleteResponse extends CompleteResponse {
   @override
   @JsonKey(name: 'body', fromJson: base64Decode, toJson: base64Encode)
   Uint8List get body;
+  @override
+  @JsonKey(name: 'trailers')
+  Map<String, List<String>>? get trailers;
+  @override
+  @JsonKey(name: 'timestamp_start')
+  @EpochTimeJsonConverter()
+  DateTime get startTime;
+  @override
+  @JsonKey(name: 'timestamp_end')
+  @EpochTimeJsonConverter()
+  DateTime get endTime;
   @override
   @JsonKey(ignore: true)
   _$$_CompleteResponseCopyWith<_$_CompleteResponse> get copyWith =>
