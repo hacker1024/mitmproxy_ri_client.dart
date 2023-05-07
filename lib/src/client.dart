@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'dart:convert';
+import 'dart:io';
 
 import 'package:mitmproxy_ri_client/src/entities/api_request.dart';
 import 'package:mitmproxy_ri_client/src/entities/message_set.dart';
@@ -83,8 +84,9 @@ class Client {
         _getDefaultMessageSetSettings,
     MessageSetProvider handleRequest = _getDefaultMessageSet,
     MessageSetProvider handleResponse = _getDefaultMessageSet,
-  }) : done = _channel.stream.forEach(
-          (message) async {
+  }) : done = _channel.ready
+            .then(
+          (_) => _channel.stream.forEach((message) async {
             // Decode and parse the API request JSON.
             final apiRequestJson =
                 jsonDecode(message as String) as Map<String, dynamic>;
@@ -103,8 +105,12 @@ class Client {
             final apiResponseJson =
                 jsonEncode((await apiResponseFuture).toJson()..['id'] = id);
             _channel.sink.add(apiResponseJson);
-          },
-        ).catchError(
+          }),
+        )
+            .catchError(
+          test: (error) =>
+              onError != null &&
+              (error is WebSocketChannelException || error is SocketException),
           (error, StackTrace stackTrace) {
             Object unwrap(Object error) {
               if (error is! WebSocketChannelException) return error;
@@ -112,11 +118,8 @@ class Client {
               return inner == null ? error : unwrap(inner);
             }
 
-            onError!
-                .call(unwrap(error as WebSocketChannelException), stackTrace);
+            onError!.call(unwrap(error as Object), stackTrace);
           },
-          test: (error) =>
-              onError != null && error is WebSocketChannelException,
         );
 
   /// Disconnect from the addon.
