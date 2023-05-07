@@ -1,6 +1,6 @@
 name: mitmproxy_ri_client
 description: A client for the mitmproxy Remote Interceptions addon.
-version: 0.1.0
+version: 0.1.1
 homepage: https://github.com/hacker1024/mitmproxy_ri_client.dart
 
 environment:
