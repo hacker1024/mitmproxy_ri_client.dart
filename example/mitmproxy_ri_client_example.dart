@@ -26,6 +26,11 @@ void main() async {
         ),
       );
     },
+
+    // Handle errors.
+    onError: (error, stackTrace) {
+      print('An error was encountered communicating with mitmproxy: $error');
+    },
   );
 
   print('Connected.');
