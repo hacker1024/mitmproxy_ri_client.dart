@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'message_set_settings.dart';
 
@@ -35,36 +35,39 @@ mixin _$MessageSetSettings {
 abstract class $MessageSetSettingsCopyWith<$Res> {
   factory $MessageSetSettingsCopyWith(
           MessageSetSettings value, $Res Function(MessageSetSettings) then) =
-      _$MessageSetSettingsCopyWithImpl<$Res>;
+      _$MessageSetSettingsCopyWithImpl<$Res, MessageSetSettings>;
+  @useResult
   $Res call(
       {@JsonKey(name: 'send_request') bool includeRequest,
       @JsonKey(name: 'send_response') bool includeResponse});
 }
 
 /// @nodoc
-class _$MessageSetSettingsCopyWithImpl<$Res>
+class _$MessageSetSettingsCopyWithImpl<$Res, $Val extends MessageSetSettings>
     implements $MessageSetSettingsCopyWith<$Res> {
   _$MessageSetSettingsCopyWithImpl(this._value, this._then);
 
-  final MessageSetSettings _value;
   // ignore: unused_field
-  final $Res Function(MessageSetSettings) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? includeRequest = freezed,
-    Object? includeResponse = freezed,
+    Object? includeRequest = null,
+    Object? includeResponse = null,
   }) {
     return _then(_value.copyWith(
-      includeRequest: includeRequest == freezed
+      includeRequest: null == includeRequest
           ? _value.includeRequest
           : includeRequest // ignore: cast_nullable_to_non_nullable
               as bool,
-      includeResponse: includeResponse == freezed
+      includeResponse: null == includeResponse
           ? _value.includeResponse
           : includeResponse // ignore: cast_nullable_to_non_nullable
               as bool,
-    ));
+    ) as $Val);
   }
 }
 
@@ -75,6 +78,7 @@ abstract class _$$_MessageSetSettingsCopyWith<$Res>
           $Res Function(_$_MessageSetSettings) then) =
       __$$_MessageSetSettingsCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {@JsonKey(name: 'send_request') bool includeRequest,
       @JsonKey(name: 'send_response') bool includeResponse});
@@ -82,26 +86,24 @@ abstract class _$$_MessageSetSettingsCopyWith<$Res>
 
 /// @nodoc
 class __$$_MessageSetSettingsCopyWithImpl<$Res>
-    extends _$MessageSetSettingsCopyWithImpl<$Res>
+    extends _$MessageSetSettingsCopyWithImpl<$Res, _$_MessageSetSettings>
     implements _$$_MessageSetSettingsCopyWith<$Res> {
   __$$_MessageSetSettingsCopyWithImpl(
       _$_MessageSetSettings _value, $Res Function(_$_MessageSetSettings) _then)
-      : super(_value, (v) => _then(v as _$_MessageSetSettings));
+      : super(_value, _then);
 
-  @override
-  _$_MessageSetSettings get _value => super._value as _$_MessageSetSettings;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? includeRequest = freezed,
-    Object? includeResponse = freezed,
+    Object? includeRequest = null,
+    Object? includeResponse = null,
   }) {
     return _then(_$_MessageSetSettings(
-      includeRequest: includeRequest == freezed
+      includeRequest: null == includeRequest
           ? _value.includeRequest
           : includeRequest // ignore: cast_nullable_to_non_nullable
               as bool,
-      includeResponse: includeResponse == freezed
+      includeResponse: null == includeResponse
           ? _value.includeResponse
           : includeResponse // ignore: cast_nullable_to_non_nullable
               as bool,
@@ -136,21 +138,19 @@ class _$_MessageSetSettings implements _MessageSetSettings {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_MessageSetSettings &&
-            const DeepCollectionEquality()
-                .equals(other.includeRequest, includeRequest) &&
-            const DeepCollectionEquality()
-                .equals(other.includeResponse, includeResponse));
+            (identical(other.includeRequest, includeRequest) ||
+                other.includeRequest == includeRequest) &&
+            (identical(other.includeResponse, includeResponse) ||
+                other.includeResponse == includeResponse));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(includeRequest),
-      const DeepCollectionEquality().hash(includeResponse));
+  int get hashCode => Object.hash(runtimeType, includeRequest, includeResponse);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_MessageSetSettingsCopyWith<_$_MessageSetSettings> get copyWith =>
       __$$_MessageSetSettingsCopyWithImpl<_$_MessageSetSettings>(
           this, _$identity);

@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'message_set.dart';
 
@@ -35,7 +35,8 @@ mixin _$MessageSet {
 abstract class $MessageSetCopyWith<$Res> {
   factory $MessageSetCopyWith(
           MessageSet value, $Res Function(MessageSet) then) =
-      _$MessageSetCopyWithImpl<$Res>;
+      _$MessageSetCopyWithImpl<$Res, MessageSet>;
+  @useResult
   $Res call(
       {@JsonKey(name: 'request') CompleteRequest? request,
       @JsonKey(name: 'response') CompleteResponse? response});
@@ -45,49 +46,54 @@ abstract class $MessageSetCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$MessageSetCopyWithImpl<$Res> implements $MessageSetCopyWith<$Res> {
+class _$MessageSetCopyWithImpl<$Res, $Val extends MessageSet>
+    implements $MessageSetCopyWith<$Res> {
   _$MessageSetCopyWithImpl(this._value, this._then);
 
-  final MessageSet _value;
   // ignore: unused_field
-  final $Res Function(MessageSet) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? request = freezed,
     Object? response = freezed,
   }) {
     return _then(_value.copyWith(
-      request: request == freezed
+      request: freezed == request
           ? _value.request
           : request // ignore: cast_nullable_to_non_nullable
               as CompleteRequest?,
-      response: response == freezed
+      response: freezed == response
           ? _value.response
           : response // ignore: cast_nullable_to_non_nullable
               as CompleteResponse?,
-    ));
+    ) as $Val);
   }
 
   @override
+  @pragma('vm:prefer-inline')
   $CompleteRequestCopyWith<$Res>? get request {
     if (_value.request == null) {
       return null;
     }
 
     return $CompleteRequestCopyWith<$Res>(_value.request!, (value) {
-      return _then(_value.copyWith(request: value));
+      return _then(_value.copyWith(request: value) as $Val);
     });
   }
 
   @override
+  @pragma('vm:prefer-inline')
   $CompleteResponseCopyWith<$Res>? get response {
     if (_value.response == null) {
       return null;
     }
 
     return $CompleteResponseCopyWith<$Res>(_value.response!, (value) {
-      return _then(_value.copyWith(response: value));
+      return _then(_value.copyWith(response: value) as $Val);
     });
   }
 }
@@ -99,6 +105,7 @@ abstract class _$$_MessageSetCopyWith<$Res>
           _$_MessageSet value, $Res Function(_$_MessageSet) then) =
       __$$_MessageSetCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {@JsonKey(name: 'request') CompleteRequest? request,
       @JsonKey(name: 'response') CompleteResponse? response});
@@ -110,26 +117,25 @@ abstract class _$$_MessageSetCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_MessageSetCopyWithImpl<$Res> extends _$MessageSetCopyWithImpl<$Res>
+class __$$_MessageSetCopyWithImpl<$Res>
+    extends _$MessageSetCopyWithImpl<$Res, _$_MessageSet>
     implements _$$_MessageSetCopyWith<$Res> {
   __$$_MessageSetCopyWithImpl(
       _$_MessageSet _value, $Res Function(_$_MessageSet) _then)
-      : super(_value, (v) => _then(v as _$_MessageSet));
+      : super(_value, _then);
 
-  @override
-  _$_MessageSet get _value => super._value as _$_MessageSet;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? request = freezed,
     Object? response = freezed,
   }) {
     return _then(_$_MessageSet(
-      request: request == freezed
+      request: freezed == request
           ? _value.request
           : request // ignore: cast_nullable_to_non_nullable
               as CompleteRequest?,
-      response: response == freezed
+      response: freezed == response
           ? _value.response
           : response // ignore: cast_nullable_to_non_nullable
               as CompleteResponse?,
@@ -164,19 +170,18 @@ class _$_MessageSet implements _MessageSet {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_MessageSet &&
-            const DeepCollectionEquality().equals(other.request, request) &&
-            const DeepCollectionEquality().equals(other.response, response));
+            (identical(other.request, request) || other.request == request) &&
+            (identical(other.response, response) ||
+                other.response == response));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(request),
-      const DeepCollectionEquality().hash(response));
+  int get hashCode => Object.hash(runtimeType, request, response);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_MessageSetCopyWith<_$_MessageSet> get copyWith =>
       __$$_MessageSetCopyWithImpl<_$_MessageSet>(this, _$identity);
 

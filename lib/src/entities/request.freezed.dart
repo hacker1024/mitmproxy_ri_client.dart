@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'request.dart';
 
@@ -35,35 +35,38 @@ mixin _$RequestSummary {
 abstract class $RequestSummaryCopyWith<$Res> {
   factory $RequestSummaryCopyWith(
           RequestSummary value, $Res Function(RequestSummary) then) =
-      _$RequestSummaryCopyWithImpl<$Res>;
+      _$RequestSummaryCopyWithImpl<$Res, RequestSummary>;
+  @useResult
   $Res call(
       {@JsonKey(name: 'method') String method, @JsonKey(name: 'url') Uri url});
 }
 
 /// @nodoc
-class _$RequestSummaryCopyWithImpl<$Res>
+class _$RequestSummaryCopyWithImpl<$Res, $Val extends RequestSummary>
     implements $RequestSummaryCopyWith<$Res> {
   _$RequestSummaryCopyWithImpl(this._value, this._then);
 
-  final RequestSummary _value;
   // ignore: unused_field
-  final $Res Function(RequestSummary) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? method = freezed,
-    Object? url = freezed,
+    Object? method = null,
+    Object? url = null,
   }) {
     return _then(_value.copyWith(
-      method: method == freezed
+      method: null == method
           ? _value.method
           : method // ignore: cast_nullable_to_non_nullable
               as String,
-      url: url == freezed
+      url: null == url
           ? _value.url
           : url // ignore: cast_nullable_to_non_nullable
               as Uri,
-    ));
+    ) as $Val);
   }
 }
 
@@ -74,32 +77,31 @@ abstract class _$$_RequestSummaryCopyWith<$Res>
           _$_RequestSummary value, $Res Function(_$_RequestSummary) then) =
       __$$_RequestSummaryCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {@JsonKey(name: 'method') String method, @JsonKey(name: 'url') Uri url});
 }
 
 /// @nodoc
 class __$$_RequestSummaryCopyWithImpl<$Res>
-    extends _$RequestSummaryCopyWithImpl<$Res>
+    extends _$RequestSummaryCopyWithImpl<$Res, _$_RequestSummary>
     implements _$$_RequestSummaryCopyWith<$Res> {
   __$$_RequestSummaryCopyWithImpl(
       _$_RequestSummary _value, $Res Function(_$_RequestSummary) _then)
-      : super(_value, (v) => _then(v as _$_RequestSummary));
+      : super(_value, _then);
 
-  @override
-  _$_RequestSummary get _value => super._value as _$_RequestSummary;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? method = freezed,
-    Object? url = freezed,
+    Object? method = null,
+    Object? url = null,
   }) {
     return _then(_$_RequestSummary(
-      method: method == freezed
+      method: null == method
           ? _value.method
           : method // ignore: cast_nullable_to_non_nullable
               as String,
-      url: url == freezed
+      url: null == url
           ? _value.url
           : url // ignore: cast_nullable_to_non_nullable
               as Uri,
@@ -134,19 +136,17 @@ class _$_RequestSummary implements _RequestSummary {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_RequestSummary &&
-            const DeepCollectionEquality().equals(other.method, method) &&
-            const DeepCollectionEquality().equals(other.url, url));
+            (identical(other.method, method) || other.method == method) &&
+            (identical(other.url, url) || other.url == url));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(method),
-      const DeepCollectionEquality().hash(url));
+  int get hashCode => Object.hash(runtimeType, method, url);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_RequestSummaryCopyWith<_$_RequestSummary> get copyWith =>
       __$$_RequestSummaryCopyWithImpl<_$_RequestSummary>(this, _$identity);
 
@@ -213,7 +213,8 @@ mixin _$CompleteRequest {
 abstract class $CompleteRequestCopyWith<$Res> {
   factory $CompleteRequestCopyWith(
           CompleteRequest value, $Res Function(CompleteRequest) then) =
-      _$CompleteRequestCopyWithImpl<$Res>;
+      _$CompleteRequestCopyWithImpl<$Res, CompleteRequest>;
+  @useResult
   $Res call(
       {@JsonKey(name: 'http_version')
           String? httpVersion,
@@ -236,59 +237,61 @@ abstract class $CompleteRequestCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$CompleteRequestCopyWithImpl<$Res>
+class _$CompleteRequestCopyWithImpl<$Res, $Val extends CompleteRequest>
     implements $CompleteRequestCopyWith<$Res> {
   _$CompleteRequestCopyWithImpl(this._value, this._then);
 
-  final CompleteRequest _value;
   // ignore: unused_field
-  final $Res Function(CompleteRequest) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? httpVersion = freezed,
-    Object? method = freezed,
-    Object? url = freezed,
-    Object? headers = freezed,
-    Object? body = freezed,
+    Object? method = null,
+    Object? url = null,
+    Object? headers = null,
+    Object? body = null,
     Object? trailers = freezed,
-    Object? startTime = freezed,
-    Object? endTime = freezed,
+    Object? startTime = null,
+    Object? endTime = null,
   }) {
     return _then(_value.copyWith(
-      httpVersion: httpVersion == freezed
+      httpVersion: freezed == httpVersion
           ? _value.httpVersion
           : httpVersion // ignore: cast_nullable_to_non_nullable
               as String?,
-      method: method == freezed
+      method: null == method
           ? _value.method
           : method // ignore: cast_nullable_to_non_nullable
               as String,
-      url: url == freezed
+      url: null == url
           ? _value.url
           : url // ignore: cast_nullable_to_non_nullable
               as Uri,
-      headers: headers == freezed
+      headers: null == headers
           ? _value.headers
           : headers // ignore: cast_nullable_to_non_nullable
               as Map<String, List<String>>,
-      body: body == freezed
+      body: null == body
           ? _value.body
           : body // ignore: cast_nullable_to_non_nullable
               as Uint8List,
-      trailers: trailers == freezed
+      trailers: freezed == trailers
           ? _value.trailers
           : trailers // ignore: cast_nullable_to_non_nullable
               as Map<String, List<String>>?,
-      startTime: startTime == freezed
+      startTime: null == startTime
           ? _value.startTime
           : startTime // ignore: cast_nullable_to_non_nullable
               as DateTime,
-      endTime: endTime == freezed
+      endTime: null == endTime
           ? _value.endTime
           : endTime // ignore: cast_nullable_to_non_nullable
               as DateTime,
-    ));
+    ) as $Val);
   }
 }
 
@@ -299,6 +302,7 @@ abstract class _$$_CompleteRequestCopyWith<$Res>
           _$_CompleteRequest value, $Res Function(_$_CompleteRequest) then) =
       __$$_CompleteRequestCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {@JsonKey(name: 'http_version')
           String? httpVersion,
@@ -322,56 +326,54 @@ abstract class _$$_CompleteRequestCopyWith<$Res>
 
 /// @nodoc
 class __$$_CompleteRequestCopyWithImpl<$Res>
-    extends _$CompleteRequestCopyWithImpl<$Res>
+    extends _$CompleteRequestCopyWithImpl<$Res, _$_CompleteRequest>
     implements _$$_CompleteRequestCopyWith<$Res> {
   __$$_CompleteRequestCopyWithImpl(
       _$_CompleteRequest _value, $Res Function(_$_CompleteRequest) _then)
-      : super(_value, (v) => _then(v as _$_CompleteRequest));
+      : super(_value, _then);
 
-  @override
-  _$_CompleteRequest get _value => super._value as _$_CompleteRequest;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? httpVersion = freezed,
-    Object? method = freezed,
-    Object? url = freezed,
-    Object? headers = freezed,
-    Object? body = freezed,
+    Object? method = null,
+    Object? url = null,
+    Object? headers = null,
+    Object? body = null,
     Object? trailers = freezed,
-    Object? startTime = freezed,
-    Object? endTime = freezed,
+    Object? startTime = null,
+    Object? endTime = null,
   }) {
     return _then(_$_CompleteRequest(
-      httpVersion: httpVersion == freezed
+      httpVersion: freezed == httpVersion
           ? _value.httpVersion
           : httpVersion // ignore: cast_nullable_to_non_nullable
               as String?,
-      method: method == freezed
+      method: null == method
           ? _value.method
           : method // ignore: cast_nullable_to_non_nullable
               as String,
-      url: url == freezed
+      url: null == url
           ? _value.url
           : url // ignore: cast_nullable_to_non_nullable
               as Uri,
-      headers: headers == freezed
+      headers: null == headers
           ? _value._headers
           : headers // ignore: cast_nullable_to_non_nullable
               as Map<String, List<String>>,
-      body: body == freezed
+      body: null == body
           ? _value.body
           : body // ignore: cast_nullable_to_non_nullable
               as Uint8List,
-      trailers: trailers == freezed
+      trailers: freezed == trailers
           ? _value._trailers
           : trailers // ignore: cast_nullable_to_non_nullable
               as Map<String, List<String>>?,
-      startTime: startTime == freezed
+      startTime: null == startTime
           ? _value.startTime
           : startTime // ignore: cast_nullable_to_non_nullable
               as DateTime,
-      endTime: endTime == freezed
+      endTime: null == endTime
           ? _value.endTime
           : endTime // ignore: cast_nullable_to_non_nullable
               as DateTime,
@@ -421,6 +423,7 @@ class _$_CompleteRequest extends _CompleteRequest {
   @override
   @JsonKey(name: 'headers')
   Map<String, List<String>> get headers {
+    if (_headers is EqualUnmodifiableMapView) return _headers;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableMapView(_headers);
   }
@@ -434,6 +437,7 @@ class _$_CompleteRequest extends _CompleteRequest {
   Map<String, List<String>>? get trailers {
     final value = _trailers;
     if (value == null) return null;
+    if (_trailers is EqualUnmodifiableMapView) return _trailers;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableMapView(value);
   }
@@ -457,32 +461,34 @@ class _$_CompleteRequest extends _CompleteRequest {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_CompleteRequest &&
-            const DeepCollectionEquality()
-                .equals(other.httpVersion, httpVersion) &&
-            const DeepCollectionEquality().equals(other.method, method) &&
-            const DeepCollectionEquality().equals(other.url, url) &&
+            (identical(other.httpVersion, httpVersion) ||
+                other.httpVersion == httpVersion) &&
+            (identical(other.method, method) || other.method == method) &&
+            (identical(other.url, url) || other.url == url) &&
             const DeepCollectionEquality().equals(other._headers, _headers) &&
             const DeepCollectionEquality().equals(other.body, body) &&
             const DeepCollectionEquality().equals(other._trailers, _trailers) &&
-            const DeepCollectionEquality().equals(other.startTime, startTime) &&
-            const DeepCollectionEquality().equals(other.endTime, endTime));
+            (identical(other.startTime, startTime) ||
+                other.startTime == startTime) &&
+            (identical(other.endTime, endTime) || other.endTime == endTime));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(httpVersion),
-      const DeepCollectionEquality().hash(method),
-      const DeepCollectionEquality().hash(url),
+      httpVersion,
+      method,
+      url,
       const DeepCollectionEquality().hash(_headers),
       const DeepCollectionEquality().hash(body),
       const DeepCollectionEquality().hash(_trailers),
-      const DeepCollectionEquality().hash(startTime),
-      const DeepCollectionEquality().hash(endTime));
+      startTime,
+      endTime);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_CompleteRequestCopyWith<_$_CompleteRequest> get copyWith =>
       __$$_CompleteRequestCopyWithImpl<_$_CompleteRequest>(this, _$identity);
 
